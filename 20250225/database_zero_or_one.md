@@ -13,14 +13,34 @@ pagenate: true
 ---
 
 ## 自己紹介
+<style>
+.self-intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-- **名前:** sasamoto takumi
-- **会社:** and roots株式会社
-- **所属:** GrowthHack 基盤チーム
-- **職業:** Webエンジニア
-- **得意分野:** バックエンド開発, インフラ構築
-- **趣味:** ゲーム, 個人開発, 筋トレ, ギター
-- **GitHub:** [motty93](https://github.com/motty93)
+.self-intro img {
+  width: 250px;
+  border-radius: 50%;
+}
+</style>
+
+<div class="self-intro">
+  <img src="./profile.jpg" alt="profile image">
+  <div>
+    <ul>
+      <li><strong>名前:</strong> sasamoto takumi</li>
+      <li><strong>会社:</strong> and roots株式会社</li>
+      <li><strong>所属:</strong> GrowthHack 基盤チーム</li>
+      <li><strong>職業:</strong> Webエンジニア</li>
+      <li><strong>得意分野:</strong> バックエンド開発, インフラ構築</li>
+      <li><strong>趣味:</strong> ゲーム, 個人開発, 筋トレ, ギター</li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/motty93">motty93</a></li>
+    </ul>
+  </div>
+</div>
+
 
 
 ---
@@ -152,4 +172,19 @@ CREATE TABLE users (
 ---
 
 ## ご清聴ありがとうございました！
-📌 スライド: [https://github.com/motty93/slides](https://github.com/motty93/slides/20250225)
+<style>
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 48vh;
+}
+
+.center img {
+width: 600px;
+}
+</style>
+
+<div class="center">
+    <img src="./qr.png" alt="qr code">
+</div>
