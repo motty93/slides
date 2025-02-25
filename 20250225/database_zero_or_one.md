@@ -163,12 +163,91 @@ CREATE TABLE users (
 
 ---
 
+## 発展内容
+### 1. フラグの代替設計
+- 0 or 1 の単純な管理ではなく、状態遷移を考慮
+- 例: `status` を `ENUM` ではなく `外部テーブル` で管理
+
+```sql
+CREATE TABLE user_status (
+  user_id INT PRIMARY KEY,
+  status_id INT,
+  FOREIGN KEY (status_id) REFERENCES statuses(id)
+);
+```
+
+---
+
+## 発展内容
+### 2. データ量が増えたときの設計
+- インデックスの最適化(`CREATE INDEX idx_status ON users(status_id)`)
+- データが増えた時のパーティショニング(ex: created_atでパーティショニング)
+
+```sql
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  is_active BOOLEAN,
+  created_at TIMESTAMP NOT NULL
+) PARTITION BY RANGE (created_at);
+
+CREATE TABLE users_2023 PARTITION OF users FOR VALUES FROM ('2023-01-01') TO ('2023-12-31');
+CREATE TABLE users_2024 PARTITION OF users FOR VALUES FROM ('2024-01-01') TO ('2024-12-31');
+```
+
+---
+
+## 発展内容
+### 3. 論理削除 vs 物理削除
+- `is_deleted`フラグの問題
+    - `SELECT`毎に`WHERE is_deleted = 0`を書く必要がある
+- 代替として`deleted_at`カラムを使う
+    - 0 or 1 だと歴史がわからない
+
+
+```sql
+CREATE TABLE users (
+  id INT PRIMARY KEY,
+  name VARCHAR(255),
+  deleted_at TIMESTAMP NULL
+);
+```
+
+---
+
+## 発展内容
+### 4.ログ・履歴の管理
+- いつ、だれが、どのように変更したかを記録
+
+```sql
+CREATE TABLE user_status_history (
+  id SERIAL PRIMARY KEY,
+  user_id INT,
+  status_id INT,
+  changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+---
+
+## 発展内容
+### **🎯 どの発展内容を選ぶべきか？**
+| トピック | 重要度 | 適用ケース |
+|----------|--------|------------|
+| **状態遷移を考慮した設計** | ✅ 高い | フラグの組み合わせが増えている場合 |
+| **スケールを考慮したデータ設計** | ✅ 高い | 大規模データで `is_active` などを検索する場合 |
+| **論理削除 vs 物理削除** | ✅ 高い | `is_deleted` の管理を改善したい場合 |
+| **監査ログ・変更履歴の管理** | 🔹 中 | 変更履歴を追いたい場合 |
+
+---
+
 ## まとめ
 ✅ **文字列型フラグはストレージ効率・パフォーマンスが悪い**
 ✅ **`BOOLEAN` / `TINYINT(1)` の方が整合性を保ちやすい**
 ✅ **どうしても文字列を使うなら `ENUM` を活用**
 ✅ **DB 設計では、データの型を慎重に選ぼう！**
-
+💡 **「発展内容」では、基本的な `0 or 1 フラグ` の問題を超えて、より実践的な設計を紹介すると効果的！**
+**➡ 状態管理・パフォーマンス・削除設計・監査ログ などのトピックが適切！**
 ---
 
 ## ご清聴ありがとうございました！
