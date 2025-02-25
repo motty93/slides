@@ -247,6 +247,7 @@ CREATE TABLE user_status_history (
 ✅ **`BOOLEAN` / `TINYINT(1)` の方が整合性を保ちやすい**
 ✅ **どうしても文字列を使うなら `ENUM` を活用**
 ✅ **DB 設計では、データの型を慎重に選ぼう！**
+✅ **[失敗から学ぶRDBの正しい歩き方](https://www.amazon.co.jp/%E5%A4%B1%E6%95%97%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6RDB%E3%81%AE%E6%AD%A3%E3%81%97%E3%81%84%E6%AD%A9%E3%81%8D%E6%96%B9-Software-Design-plus-%E6%9B%BD%E6%A0%B9/dp/4297104083)を読め**
 
 ---
 
