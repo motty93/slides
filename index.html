@@ -1,1 +1,68 @@
-Hello GitHub Pages
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>スライド一覧</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin: 50px;
+			background-color: #f4f4f4;
+		}
+
+		h1 {
+			color: #333;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.slide-list {
+			list-style: none;
+			padding: 0;
+			max-width: 600px;
+			width: 100%;
+		}
+
+		.slide-list li {
+			background: white;
+			padding: 15px;
+			margin: 10px 0;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.slide-list a {
+			text-decoration: none;
+			font-size: 18px;
+			color: #007bff;
+			font-weight: bold;
+		}
+
+		.slide-list a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>スライド一覧</h1>
+	<p>以下のスライドをクリックすると閲覧できます。</p>
+
+	<div class="container">
+		<ul class="slide-list">
+			<li><a href="20250225/slide.html">2025-02-25: Database 0 or 1</a></li>
+			<!-- 新しいスライドを追加するときは、ここに<li>を追加 -->
+		</ul>
+	</div>
+
+</body>
+
+</html>
