@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant Claude
+    participant Approver as telegram-approver
+    participant Telegram
+    participant Watch
+    participant User
+
+    Claude->>Approver: PreToolUse (stdin JSON)
+    Approver->>Approver: ツール判定（危険？）
+    alt 安全なコマンド
+        Approver-->>Claude: 自動承認 (exit 0)
+    else 危険コマンド
+        Approver->>Telegram: sendMessage
+        Telegram->>Watch: 通知
+        Watch->>User: 承認依頼
+        User->>Watch: OK
+        Watch->>Telegram: reply
+        Approver->>Telegram: getUpdates
+        Approver-->>Claude: 承認 (exit 0) / 拒否 (exit 2)
+    end

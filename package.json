@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "for dir in 20*/; do marp --allow-local-files -I \"$dir\" -o \"$dir\"; done"
   },
   "author": "",
   "license": "ISC",
