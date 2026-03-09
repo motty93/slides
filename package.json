@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "for dir in 20*/; do marp --allow-local-files -I \"$dir\" -o \"$dir\"; done"
+    "build": "for dir in 20*/; do marp --allow-local-files -I \"$dir\" -o \"$dir\"; done",
+    "deploy": "npm run build && wrangler pages deploy . --project-name slides"
   },
   "author": "",
   "license": "ISC",
