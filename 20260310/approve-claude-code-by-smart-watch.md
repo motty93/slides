@@ -182,6 +182,8 @@ go install github.com/motty93/telegram-approver@latest
 - Skill 経由だと選択肢が必要になるケースがある
 - まれにスマートウォッチの通知に気づけないことがある
 - 間違えてウォッチの通知を消してしまうと承認できない
+- Telegram 経由で謎の仮想通貨 spam が届くのでうざい
+- スマホがないとダメ
 
 ---
 
