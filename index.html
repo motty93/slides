@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slides - motty93</title>
-  <link rel="icon" href="https://github.com/motty93.png?size=32" type="image/png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><clipPath id='c'><circle cx='50' cy='50' r='50'/></clipPath></defs><image href='https://github.com/motty93.png?size=100' width='100' height='100' clip-path='url(%23c)'/></svg>" type="image/svg+xml">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,6 +27,21 @@
     header h1 {
       font-size: 1.4rem;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    header h1 a {
+      display: inline-flex;
+    }
+
+    header h1 a img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      vertical-align: middle;
+      display: block;
     }
 
     main {
@@ -79,7 +94,12 @@
 </head>
 <body>
   <header>
-    <h1>Slides</h1>
+    <h1>
+      <a href="https://github.com/motty93" target="_blank" rel="noopener noreferrer">
+        <img src="https://github.com/motty93.png?size=48" alt="motty93">
+      </a>
+      Slides
+    </h1>
   </header>
 
   <main>
