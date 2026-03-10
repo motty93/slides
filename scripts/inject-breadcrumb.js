@@ -3,6 +3,8 @@ const path = require("path");
 
 const rootDir = path.resolve(__dirname, "..");
 
+const faviconTag = `<link rel="icon" href="https://github.com/motty93.png?size=32" type="image/png">`;
+
 const breadcrumbHtml = `<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(255,255,255,0.95);border-bottom:1px solid #e5e5e5;padding:6px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;backdrop-filter:blur(4px)"><a href="/" style="color:#888;text-decoration:none">Slides</a> <span style="color:#ccc;margin:0 6px">/</span> <span style="color:#444">{{title}}</span></nav>`;
 
 const slides = fs
@@ -29,6 +31,11 @@ for (const file of slides) {
     const md = fs.readFileSync(mdFile, "utf-8");
     const headerMatch = md.match(/^header:\s*"?(.+?)"?\s*$/m);
     if (headerMatch) title = headerMatch[1];
+  }
+
+  // Inject favicon into <head>
+  if (!html.includes('rel="icon"')) {
+    html = html.replace(/<\/head>/, `${faviconTag}\n</head>`);
   }
 
   const nav = `<!-- breadcrumb -->${breadcrumbHtml.replace("{{title}}", title)}`;
