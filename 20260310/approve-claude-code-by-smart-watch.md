@@ -15,6 +15,9 @@ section h2 {
   top: 80px;
   left: 60px;
 }
+section.code-slide h2 {
+  position: static;
+}
 </style>
 
 # スマートウォッチで Claude Code を承認する
@@ -121,6 +124,7 @@ go install github.com/motty93/telegram-approver@latest
 
 ---
 
+<!-- _class: code-slide -->
 ## 設定方法
 
 `~/.claude/settings.json` に追加するだけ
