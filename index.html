@@ -5,99 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slides - motty93</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #333;
+      color: #222;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: #f5f5f5;
+      background: #fafafa;
     }
 
     header {
-      background: #222;
-      color: #fff;
-      padding: 24px 32px;
+      padding: 48px 24px 0;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
     }
 
     header h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.4rem;
+      font-weight: 700;
     }
 
     main {
       flex: 1;
-      max-width: 800px;
+      max-width: 640px;
       width: 100%;
       margin: 0 auto;
-      padding: 32px 16px;
+      padding: 32px 24px;
     }
 
-    .slide-list {
+    ul {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
     }
 
-    .slide-list li a {
+    ul li + li {
+      border-top: 1px solid #e5e5e5;
+    }
+
+    ul li a {
       display: block;
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px 24px;
+      padding: 16px 0;
       text-decoration: none;
-      color: #333;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.2s, transform 0.2s;
+      color: inherit;
     }
 
-    .slide-list li a:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px);
+    ul li a:hover .slide-title {
+      color: #555;
     }
 
     .slide-date {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #888;
       margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
     }
 
     .slide-title {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.15s;
     }
 
     footer {
-      background: #222;
-      color: #aaa;
       text-align: center;
-      padding: 16px 32px;
-      font-size: 0.85rem;
+      padding: 24px;
+      font-size: 0.75rem;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Slides - motty93</h1>
+    <h1>Slides</h1>
   </header>
 
   <main>
-    <ul class="slide-list">
+    <ul>
       <li>
         <a href="/20260310/approve-claude-code-by-smart-watch.html">
-          <div class="slide-date">2026/03/10</div>
+          <div class="slide-date">2026.03.10</div>
           <div class="slide-title">Claude Code x Smart Watch</div>
         </a>
       </li>
       <li>
         <a href="/20250225/database_zero_or_one.html">
-          <div class="slide-date">2025/02/25</div>
+          <div class="slide-date">2025.02.25</div>
           <div class="slide-title">DBにおける0と1 ～ 文字列型フラグのアンチパターンとは？ ～</div>
         </a>
       </li>
