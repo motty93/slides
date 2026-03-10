@@ -6,6 +6,17 @@ footer: "performed by @motty93"
 paginate: true
 ---
 
+<style>
+section {
+  justify-content: flex-start;
+}
+section h2 {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+}
+</style>
+
 # スマートウォッチで Claude Code を承認する
 ### ～ telegram-approver の紹介 ～
 
@@ -22,7 +33,10 @@ paginate: true
 
 .self-intro img {
   width: 250px;
+  height: 250px;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
 }
 </style>
 
@@ -51,7 +65,7 @@ paginate: true
 2. telegram-approver とは
 3. システム構成
 4. hook モードの仕組み
-5. デモ
+5. 課題点
 6. まとめ
 
 ---
@@ -159,9 +173,11 @@ go install github.com/motty93/telegram-approver@latest
 
 ---
 
-## デモ
+## 課題点
 
-<!-- 実際のデモをここで行う -->
+- Skill 経由だと選択肢が必要になるケースがある
+- まれにスマートウォッチの通知に気づけないことがある
+- 間違えてウォッチの通知を消してしまうと承認できない
 
 ---
 
